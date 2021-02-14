@@ -9,6 +9,9 @@ export function initialFirebase() {
 	console.log(
 		`firebase initial: ${firebase.options.credential === config.credential}`
 	);
-
-	return admin.firestore();
+	const firebases = new Map();
+	firebases.set('firestore', admin.firestore());
+	// firebases.set('fieldValue', admin.firestore.FieldValue);
+	// return admin.firestore();
+	return firebases;
 }

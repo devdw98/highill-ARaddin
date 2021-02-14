@@ -1,6 +1,8 @@
 import express from 'express';
 import { initialFirebase } from './config/firebaseConfig';
 
+import { userRouter } from './controllers/user';
+
 // Create Express server
 const app = express();
 app.use(express.json());
@@ -11,6 +13,9 @@ app.get('/', (req, res) => {
 });
 
 // firebase connection & use firestore
-export const firestore = initialFirebase();
+export const firestore = initialFirebase().get('firestore');
+// export const fieldValue = initialFirebase().get('fieldValue');
+
+app.use('/api/user', userRouter);
 
 export default app;
