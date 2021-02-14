@@ -43,3 +43,6 @@ coverage/**/*
 
 # logs
 debug.log
+
+# firebase
+src/config/firebase
